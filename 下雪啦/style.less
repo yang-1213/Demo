@@ -1,0 +1,25 @@
+body {
+    position: relative;
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+    filter: drop-shadow(0 0 10px white);
+}
+
+#app {
+    height: 100%;
+    .snow {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        filter: blur(2px); // 雪花
+        &:nth-child(2n + 1) {
+            filter: blur(3px); // 雪花
+        }
+
+        // 作为函数的混合  less一般未启用这个功能
+        // @rand: `Math.random() `;
+    }
+}

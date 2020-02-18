@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Raleway Italic'), local('Raleway-Italic'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptsg8zYS_SKggPNyCg4TYFv.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Raleway Bold'), local('Raleway-Bold'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwJYtWqZPBQ.ttf) format('truetype');
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #222;
+}
+.app {
+  margin: 0 5em;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  color: #6ee1f5;
+  font-size: 2em;
+  font-family: Raleway, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  white-space: pre;
+}
+.app span {
+  opacity: 0;
+  transform: scale(0);
+  animation: fadeIn 2.4s forwards;
+}
+.app::before,
+.app::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  transform: scale(0);
+}
+.app::before {
+  left: 50%;
+  animation: slideLeft 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+}
+.app::after {
+  right: 50%;
+  animation: slideRight 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slideLeft {
+  to {
+    left: -6%;
+    opacity: 1;
+    transform: scale(0.9);
+  }
+}
+@keyframes slideRight {
+  to {
+    right: -6%;
+    opacity: 1;
+    transform: scale(0.9);
+  }
+}

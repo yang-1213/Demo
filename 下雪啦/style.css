@@ -1,0 +1,21 @@
+body {
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+  filter: drop-shadow(0 0 10px white);
+}
+#app {
+  height: 100%;
+}
+#app .snow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+#app .snow:nth-child(2n + 1) {
+  filter: blur(3px);
+}
