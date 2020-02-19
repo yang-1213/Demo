@@ -6,14 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>cssDemo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        p,
+        a {
+            display: inline-block;
+        }
+
+        .reference {
+            display: block;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        a {
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>cssDemo</h1>
-    <p><a href="https://www.jianshu.com/p/9471b686ff07">参考</a></p>
+    <p class="reference"><a href="https://www.jianshu.com/p/9471b686ff07">参考</a></p>
     <p><a href="交错动画">交错动画</a></p>
     <p><a href="下雪啦">下雪啦</a></p>
-    <p><a href="用JS分割文本">用JS分割文本</a></p>
+    <p>
+        <div class="title">用JS分割文本</div>
+        <a href="用JS分割文本/按顺序开始">按顺序开始</a>
+        <a href="用JS分割文本/从中间">从中间</a>
+    </p>
 </body>
 
 </html>
