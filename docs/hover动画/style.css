@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
+}
+body {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #1a1e23;
+  font-family: Lato;
+  overflow: hidden;
+}
+body * {
+  box-sizing: border-box;
+}
+#app {
+  width: 100%;
+}
+.btn {
+  position: relative;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #00d1b2;
+  text-decoration: none;
+  background-color: inherit;
+  border: 1px solid #00d1b2;
+  outline: transparent;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: 0.25s;
+}
+.btn::after {
+  content: attr(data-text);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 1s;
+}
+.btn .border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.btn .border div {
+  position: absolute;
+  background-color: #00d1b2;
+  transform: scale(0);
+}
+.btn .border .border-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform-origin: left;
+  transition: all 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn .border .border-right {
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  transform-origin: bottom;
+  transition: all 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn .border .border-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform-origin: left;
+  transition: all 0.25s 0.65s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+.btn .border .border-left {
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  transform-origin: bottom;
+  transition: all 0.25s 0.65s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+.btn span {
+  position: relative;
+  top: 0;
+  transition: all 1s;
+}
+.btn:hover .border div {
+  transform: scale(1);
+}
+.btn:hover .border .border-top {
+  transition: all 0.65s 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn:hover .border .border-right {
+  transition: all 0.65s 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn:hover .border .border-bottom {
+  transition: all 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+.btn:hover .border .border-left {
+  transition: all 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+.btn:hover span {
+  top: -1rem;
+  opacity: 0;
+}
+.btn:hover::after {
+  top: 0;
+  opacity: 1;
+}
