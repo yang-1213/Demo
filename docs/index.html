@@ -1,53 +1,34 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>cssDemo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            text-align: center;
-        }
-
-        p,
-        a {
-            display: inline-block;
-        }
-
-        .reference {
-            display: block;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        a {
-            margin: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>css-demo</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/vuep/dist/vuep.css">
 </head>
-
 <body>
-    <h1>cssDemo</h1>
-    <p class="reference"><a href="https://www.jianshu.com/p/9471b686ff07">参考</a></p>
-    <p><a href="交错动画">交错动画</a></p>
-    <p><a href="下雪啦">下雪啦</a></p>
-    <p><a href="hover动画">hover动画</a></p>
-    <p><a href="伪元素">伪元素</a></p>
-    <p><a href="attr()生成文本内容">attr()生成文本内容</a></p>
-    <p>
-        <div class="title">用JS分割文本</div>
-        <a href="用JS分割文本/按顺序开始">按顺序开始</a>
-        <a href="用JS分割文本/从中间">从中间</a>
-    </p>
-    <p><a href="骨架屏css">骨架屏css</a></p>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '',
+      repo: 'https://github.com/yang-1213/cssDemo',//配置仓库
+      coverpage: true,//开启封面 创建_coverpage.md
+      loadSidebar: true,//侧边栏 创建_sidebar.md
+      auto2top: true,//切换页面后是否自动跳转到页面顶部。
+      homepage: 'home.md',//入口文件改为hone.md
+    }
+  </script>
+<script src="//unpkg.com/vue/dist/vue.min.js"></script>
+<script src="//unpkg.com/vuep/dist/vuep.min.js"></script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<script>
+  // 离线模式 https://docsify.js.org/#/zh-cn/pwa
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
 </body>
-
 </html>
