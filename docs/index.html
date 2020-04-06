@@ -1,34 +1,125 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>css-demo</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <link rel="stylesheet" href="//unpkg.com/vuep/dist/vuep.css">
+  <meta name="description" content="Description" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" />
+  <link rel="stylesheet" href="//unpkg.com/vuep/dist/vuep.css" />
+  <link rel="stylesheet" href="/_media/css/vuep_theme.css" />
+  <!-- 评论 -->
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css" />
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="//unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+  <style>
+    [alt="logo"] {
+      border-radius: 50%;
+      pointer-events: none;
+    }
+  </style>
 </head>
+
 <body>
   <div id="app"></div>
+  <div id="gitalk-container"></div>
   <script>
+    function requestFullScreen(el) {
+      if (document.mozFullScreenEnabled) {
+        el.requestFullscreen();
+      } else {
+        console.log('你的浏览器不支持全屏模式!');
+      }
+    }
     window.$docsify = {
-      name: '',
-      repo: 'https://github.com/yang-1213/cssDemo',//配置仓库
-      coverpage: true,//开启封面 创建_coverpage.md
-      loadSidebar: true,//侧边栏 创建_sidebar.md
-      auto2top: true,//切换页面后是否自动跳转到页面顶部。
-      homepage: 'home.md',//入口文件改为hone.md
+      name: "css-demo",
+      // logo: '/_media/icon.jpeg',
+      // routerMode: 'history', // default: 'hash'
+      repo: "https://github.com/yang-1213/cssDemo", //配置仓库
+      coverpage: true, //开启封面 创建_coverpage.md
+      loadSidebar: true, //侧边栏 创建_sidebar.md
+      auto2top: true, //切换页面后是否自动跳转到页面顶部。
+      homepage: "home.md", //入口文件改为hone.md
+      // 复制插件
+      copyCode: {
+        buttonText: "点击复制",
+        errorText: "复制失败",
+        successText: "复制成功",
+      },
+      plugins: [
+        // 自定义插件
+        function (hook, vm) {
+          hook.init(function () {
+            // 初始化时调用，只调用一次，没有参数。
+            console.log("初始化");
+
+          });
+
+          hook.mounted(function () {
+            // 初始化完成后调用，只调用一次，没有参数。
+          });
+
+          hook.beforeEach(function (content) {
+            // 每次开始解析 Markdown 内容时调用
+            // ...
+            return content;
+          });
+
+          hook.afterEach(function (html, next) {
+            // 解析成 html 后调用。beforeEach 和 afterEach 支持处理异步逻辑
+            // ...
+            // 异步处理完成后调用 next(html) 返回结果
+            next(html);
+          });
+
+          hook.doneEach(function () {
+            // 每次路由切换时数据全部加载完成后调用，没有参数。
+            // ...
+          });
+
+          hook.ready(function () {
+            // 初始化并第一次加载完成数据后调用，没有参数。
+          });
+        },
+      ],
+    };
+  </script>
+  <script src="//unpkg.com/vue/dist/vue.min.js"></script>
+  <!-- 引入组件库 -->
+  <script src="//unpkg.com/element-ui/lib/index.js"></script>
+  <script src="//unpkg.com/vuep/dist/vuep.min.js"></script>
+  <script src="//unpkg.com/babel-standalone/babel.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <!-- less语法高亮 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-less.min.js"></script>
+
+  <!-- 复制到剪贴板 -->
+  <script src="//unpkg.com/docsify-copy-code"></script>
+  <!-- 评论 -->
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <script>
+    // 评论插件初始化 https://github.com/gitalk/gitalk/blob/master/readme-cn.md
+    /*     var gitalk = new Gitalk({
+        clientID: 'GitHub Application Client ID',
+        clientSecret: 'GitHub Application Client Secret',
+        repo: 'GitHub repo',
+        owner: 'GitHub repo owner',
+        admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+  
+      gitalk.render('gitalk-container') */
+    // 离线模式 https://docsify.js.org/#/zh-cn/pwa
+    if (typeof navigator.serviceWorker !== "undefined") {
+      navigator.serviceWorker.register("sw.js");
     }
   </script>
-<script src="//unpkg.com/vue/dist/vue.min.js"></script>
-<script src="//unpkg.com/vuep/dist/vuep.min.js"></script>
-<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-<script>
-  // 离线模式 https://docsify.js.org/#/zh-cn/pwa
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('sw.js')
-  }
-</script>
 </body>
+
 </html>

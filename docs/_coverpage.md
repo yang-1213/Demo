@@ -1,12 +1,10 @@
-![logo](_media/icon.svg)
+![logo](_media/icon.jpeg)
 
-# docsify
+# css-demo
 
-> A magical documentation site generator.
-
-* Simple and lightweight (~12kb gzipped)
-* Multiple themes
-* Not build static html files
+> 记录一些常用的css技巧和一些css小工具
+- 开发过程中总结一些常用的 CSS 样式
+- 记录一些 CSS 的新属性和一点奇淫技巧
 
 [GitHub](https://github.com/yang-1213/cssDemo)
-[Get Started](#)
+[Get Started](home)
