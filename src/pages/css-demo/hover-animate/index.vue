@@ -1,12 +1,12 @@
 <route lang="yaml">
 meta:
-    title: hover动画效果演示
-    desc: hover动画
+    title: hover动画效果演示1
+    desc: 利用伪元素实现
 </route>
 
 <template>
     <div class="content">
-        <button class="btn" data-text="Start">
+        <div class="btn" data-text="Start">
             <!-- 边框 -->
             <div class="border">
                 <div class="border-top"></div>
@@ -14,8 +14,8 @@ meta:
                 <div class="border-bottom"></div>
                 <div class="border-left"></div>
             </div>
-            <span>Start</span>
-        </button>
+            <span class="btn-text">Start</span>
+        </div>
     </div>
 </template>
 
@@ -34,128 +34,134 @@ useHead({
 
 <style lang="less" scoped>
 @color: #00a4ff;
-@active-color: #ff00f7;
+@active-color: #006eff;
 @ease-in-duration: 0.25s;
 @ease-in-exponential: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 @ease-out-duration: 0.65s;
 @ease-out-delay: @ease-in-duration;
 @ease-out-exponential: cubic-bezier(0.19, 1, 0.22, 1);
+
 .content {
     display: flex;
-    flex-wrap: wrap;
-    height: 100vh;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    background: #1a1e23;
-    font-family: Lato;
+    justify-content: center;
+    background-color: #1a1e23;
+    height: 100%;
     overflow: hidden;
-}
-.btn {
-    position: relative;
-    padding: 1rem 3rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: @color;
-    text-decoration: none;
-    background-color: inherit;
-    // border: 1px solid @color;
-    outline: transparent;
-    overflow: hidden;
-    cursor: pointer;
-    user-select: none;
-    white-space: nowrap;
-    transition: 0.25s;
-    &::after {
-        content: attr(data-text);
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: all 1s;
-    }
 
-    .border {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        div {
-            position: absolute;
-            background-color: @active-color;
-            transform: scale(0);
-        }
-        .border-top {
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            transform-origin: left;
-            transition: all @ease-out-duration @ease-out-exponential;
-        }
-        .border-right {
-            top: 0;
-            right: 0;
-            width: 1px;
-            height: 100%;
-            transform-origin: bottom;
-            transition: all @ease-out-duration @ease-out-exponential;
-        }
-        .border-bottom {
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            transform-origin: left;
-            transition: all @ease-in-duration @ease-out-duration @ease-in-exponential;
-        }
-        .border-left {
-            top: 0;
-            left: 0;
-            width: 1px;
-            height: 100%;
-            transform-origin: bottom;
-            transition: all @ease-in-duration @ease-out-duration @ease-in-exponential;
-        }
-    }
-
-    span {
+    .btn {
         position: relative;
+        width: 200px;
+        height: 100px;
         top: 0;
-        transition: all 1s;
-    }
-    &:hover {
+        left: 0;
+        cursor: pointer;
+        outline: 1px solid @color;
+        outline-offset: -1px;
+        font-size: 1.5rem;
+        color: @color;
+        font-weight: bold;
+        text-transform: uppercase;
+        overflow: hidden;
+
         .border {
-            div {
-                transform: scale(1);
-            }
-            // 覆盖transition
+            position: absolute;
+            width: 200px;
+            height: 100px;
+
             .border-top {
-                transition: all @ease-out-duration @ease-out-delay @ease-out-exponential;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: @color;
+                transform-origin: left;
+                transform: scale(0);
+                transition: @ease-in-duration @ease-in-exponential;
             }
             .border-right {
-                transition: all @ease-out-duration @ease-out-delay @ease-out-exponential;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 1px;
+                height: 100%;
+                background-color: @color;
+                transform-origin: bottom;
+                transform: scale(0);
+                transition: @ease-in-duration @ease-in-exponential;
             }
             .border-bottom {
-                transition: all @ease-in-duration @ease-in-exponential;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: @color;
+                transform-origin: left;
+                transform: scale(0);
+                transition: @ease-out-duration @ease-out-delay @ease-in-exponential;
             }
             .border-left {
-                transition: all @ease-in-duration @ease-in-exponential;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 1px;
+                height: 100%;
+                background-color: @color;
+                transform-origin: bottom;
+                transform: scale(0);
+                transition: @ease-out-duration @ease-out-delay @ease-in-exponential;
             }
         }
-        span {
-            top: -1rem;
-            opacity: 0;
+
+        .btn-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: @ease-out-duration @ease-out-delay @ease-in-exponential;
         }
+
         &::after {
-            top: 0;
-            opacity: 1;
+            position: absolute;
+            content: attr(data-text);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            opacity: 0;
+            transition: @ease-out-duration @ease-out-delay @ease-in-exponential;
+        }
+
+        &:hover {
+            outline-color: @active-color;
+            .border-top,
+            .border-right,
+            .border-bottom,
+            .border-left {
+                transform: scale(1);
+            }
+
+            .border-top,
+            .border-right {
+                transition: @ease-out-duration @ease-out-delay @ease-out-exponential;
+            }
+            .border-bottom,
+            .border-left {
+                transition: @ease-in-duration @ease-in-exponential;
+            }
+
+            .btn-text {
+                opacity: 0;
+                transform: translate(-50%, -100%);
+                transition: all @ease-out-duration @ease-out-delay @ease-out-exponential;
+            }
+
+            &::after {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+                transition: all @ease-out-duration @ease-out-delay @ease-out-exponential;
+            }
         }
     }
 }

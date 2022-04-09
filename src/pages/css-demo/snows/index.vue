@@ -11,7 +11,7 @@ meta:
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive } from "vue"
+import { onMounted, onBeforeUnmount, reactive, ref } from "vue"
 
 interface SnowList {
     style: {
@@ -22,6 +22,7 @@ interface SnowList {
 }
 
 const snowList: Array<SnowList> = reactive([]) // 雪花列表
+const snowStyleId = ref("") // 雪花样式id
 
 /** 随机范围 */
 const random_range = ($min: number, $max: number) => {
@@ -34,8 +35,11 @@ const main = () => {
     let keyFrameStr: string = "" // style 样式模板
     /** 创建 style 标签 */
     function createStyle(styleStr: string) {
+        let id = `snow-${Date.now()}`
+        snowStyleId.value = id
         // 添加style到head
         let styleEl = document.createElement("style")
+        styleEl.id = id
         styleEl.textContent = styleStr
         document.head.appendChild(styleEl)
     }
@@ -84,6 +88,11 @@ const main = () => {
 }
 
 onMounted(main)
+onBeforeUnmount(() => {
+    /** 移除雪花css样式 */
+    let styleEl = document.getElementById(snowStyleId.value)
+    document.head.removeChild(styleEl as HTMLElement)
+})
 </script>
 
 <style lang="less" scoped>

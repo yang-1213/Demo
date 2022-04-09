@@ -1,11 +1,11 @@
 <route lang="yaml">
 meta:
     title: 文字动画效果-2
-    desc: 用js分割文本-开始位置
+    desc: 用js分割文本-开始位置交错
 </route>
 
 <template>
-    <div h-full flex justify="center" items="center" text-center :class="$style.contentBg">
+    <div h-full flex justify="center" items="center" text-center bg="gray-500">
         <div class="content">
             <span v-for="(text, i) in state.msg" :key="text" :style="{ animationDelay: `${i * 0.1}s` }">
                 {{ text }}
@@ -27,17 +27,20 @@ useHead({
     ],
 })
 
-const state = reactive({
-    msg: "sword art online Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, animi. Quaerat dolorem sed et veniam nostrum,commodi tempora placeat facere aliquam magni quod non deserunt aliquid, enim architecto ratione culpa.",
-})
-</script>
-
-<style lang="less" scoped module>
-.contentBg {
-    background-image: linear-gradient(rgba(16, 16, 16, 0.8), rgba(16, 16, 16, 0.8)), url(https://i.loli.net/2019/10/18/buDT4YS6zUMfHst.jpg);
-    background-size: cover;
+/** 获取一言 */
+const getHitokoto = async () => {
+    const res = await fetch("https://v1.hitokoto.cn/")
+    const data = await res.json()
+    return data.hitokoto
 }
-</style>
+
+// 一言
+const state = reactive({
+    msg: "",
+})
+
+state.msg = await getHitokoto()
+</script>
 
 <style lang="less" scoped>
 .content {
@@ -65,7 +68,7 @@ const state = reactive({
 @keyframes landIn {
     from {
         opacity: 0;
-        transform: translateY(-20%);
+        transform: translateY(-30%);
     }
 
     to {

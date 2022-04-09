@@ -1,7 +1,7 @@
 <route lang="yaml">
 meta:
     title: CSS-DEMO
-    desc: css演示动画效果
+    desc: css演示动画效果 https://www.jianshu.com/p/9471b686ff07
 </route>
 
 <template>

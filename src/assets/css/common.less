@@ -1,6 +1,20 @@
 @import "@unocss/reset/normalize.css"; // normalize.css
 @import "@unocss/reset/tailwind.css"; // preflights from tailwind
 
+
+/* 滚动条样式on */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 1px;
+}
+::-webkit-scrollbar-thumb {
+    background: #a43eaf;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+/* 滚动条样式off */
+
 body {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

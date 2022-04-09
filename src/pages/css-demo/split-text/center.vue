@@ -1,7 +1,7 @@
 <route lang="yaml">
 meta:
     title: 文字动画效果-1
-    desc: 用js分割文本-中间
+    desc: 用js分割文本-中间位置交错
 </route>
 
 <template>
@@ -45,7 +45,7 @@ onBeforeMount(() => {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    color: #6ee1f5;
+    color: #00d9ff;
     font-size: 1.5em;
     font-family: Raleway, sans-serif;
     letter-spacing: 3px;
@@ -57,6 +57,7 @@ onBeforeMount(() => {
         transform: scale(0);
         animation: fadeIn 2.4s forwards;
     }
+    
     &::before,
     &::after {
         position: absolute;

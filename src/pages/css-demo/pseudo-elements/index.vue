@@ -1,7 +1,7 @@
 <route lang="yaml">
 meta:
     title: 渐变效果
-    desc: 伪元素
+    desc: 利用伪元素
 </route>
 
 <template>
