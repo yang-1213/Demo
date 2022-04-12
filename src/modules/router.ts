@@ -14,7 +14,7 @@ const router = createRouter({
             setTimeout(() => {
                 if (savedPosition) return resolve(savedPosition)
                 resolve({ top: 0 })
-            }, 500)
+            }, 50)
         })
     },
     routes,
