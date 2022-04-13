@@ -4,7 +4,7 @@ meta:
 </route>
 
 <template>
-    <div class="container">
+    <div class="content">
         <div class="progress-container">
             <div class="progress" :style="{ width: progressWidth }"></div>
             <div
@@ -67,7 +67,7 @@ const handleNext = () => {
 @line-border-fill: #00a4ff;
 @line-border-empty: #e0e0e0;
 
-.container {
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;

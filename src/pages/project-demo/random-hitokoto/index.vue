@@ -4,7 +4,7 @@ meta:
 </route>
 
 <template>
-    <div class="container">
+    <div class="wrapper">
         <transition name="l-fade">
             <div class="content" v-if="state.message.hitokoto">
                 <h3>随机一言</h3>
@@ -50,7 +50,7 @@ onMounted(getHitokoto)
 </script>
 
 <style lang="less" scoped>
-.container {
+.wrapper {
     background-color: #686de0;
     display: flex;
     flex-direction: column;

@@ -4,7 +4,7 @@ meta:
 </route>
 
 <template>
-    <div class="container">
+    <div class="wrapper">
         <div class="content">
             <h1>输入以逗号 (',') 分隔的所有选项。完成后按回车键</h1>
             <textarea v-model.trim="state.value" placeholder="在这里输入选项" @keyup.enter="handleEnter" @input="handleInput"></textarea>
@@ -62,7 +62,7 @@ const handleEnter = () => {
 </script>
 
 <style lang="less" scoped>
-.container {
+.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;

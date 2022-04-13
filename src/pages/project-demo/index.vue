@@ -1,30 +1,27 @@
 <template>
-    <div
-        class="wrapper"
-        :style="{ backgroundImage: `url(${imageBg})`}"
-    >
+    <div class="wrapper" :style="{ backgroundImage: `url(${imageBg})` }">
         <div class="content">
             <div
-                v-for="route in routerList"
-                :key="route.path"
                 class="item"
+                v-for="route in routerList"
                 :style="{
                     background: `linear-gradient(to right, ${randomColor()}, ${randomColor()})`,
                 }"
+                @click="handlePush(route.path)"
             >
-                <router-link :to="route.path">{{ route.meta.title }}</router-link>
+                {{ route.meta.title }}
             </div>
         </div>
     </div>
 </template>
 <script lang="ts" setup>
-import useApp from "@/hooks/common/useApp"
+import useApp from "@hooks/common/useApp"
 import { onMounted, ref } from "vue"
 import { randomColor } from "@utils/index"
 
 const { router } = useApp()
 const routes = router.getRoutes()
-const routerList = routes.filter(route => route.path.includes("/50projectdemo/"))
+const routerList = routes.filter(route => route.path.includes("/project-demo/"))
 
 const imageBg = ref("")
 
@@ -37,6 +34,10 @@ const getImg = async () => {
         imageBg.value = ret.data[0]["url"]
         sessionStorage.setItem("HomeBg", imageBg.value)
     }
+}
+
+const handlePush = (path: string) => {
+    location.href = path
 }
 
 onMounted(async () => {
@@ -61,18 +62,14 @@ onMounted(async () => {
         justify-content: space-between;
         .item {
             width: 500px;
-            height: 200px;
-            line-height: 200px;
+            line-height: 100px;
             border-radius: 20px;
             text-align: center;
             margin: 10px;
             opacity: 0.8;
-            > a {
-                display: block;
-                height: 100%;
-                text-decoration: none;
-                color: #fff;
-            }
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
         }
     }
 }
