@@ -15,12 +15,11 @@ const main = function (isBuild: boolean = false) {
 
     plugins.push(viteVue()) // Vue
 
-    plugins.push(viteComponents()) // 组件自动化导入
-
     plugins.push(vitePages()) // 页面自动化导入
 
     plugins.push(viteUnocss()) // 原子化css
-
+    
+    plugins.push(viteComponents()) // 组件自动化导入
     // 开发模式
     if (!isBuild) {
         plugins.push(viteInspect()) // vite调试插件
