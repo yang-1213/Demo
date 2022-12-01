@@ -22,18 +22,18 @@ meta:
 <script lang="ts" setup>
 const ImgList = [
     {
-        front: "https://cdn.jsdelivr.net/gh/mbsky1213/images/web/2021/08/24/37l29brrshy.jpeg",
-        back: "https://cdn.jsdelivr.net/gh/mbsky1213/images/web/2021/08/24/4yig5z1bwpx.jpeg",
+        front: "https://raw.githubusercontents.com/mbsky1213/images/master/web/2021/08/24/37l29brrshy.jpeg",
+        back: "https://raw.githubusercontents.com/mbsky1213/images/master/web/2021/08/24/4yig5z1bwpx.jpeg",
     },
     {
-        front: "https://cdn.jsdelivr.net/gh/mbsky1213/images/web/2021/08/24/8ihjapsraol.jpeg",
-        back: "https://cdn.jsdelivr.net/gh/mbsky1213/images/web/2021/08/24/8rm0mmufdg.jpeg",
+        front: "https://raw.githubusercontents.com/mbsky1213/images/master/web/2021/08/24/8ihjapsraol.jpeg",
+        back: "https://raw.githubusercontents.com/mbsky1213/images/master/web/2021/08/24/8rm0mmufdg.jpeg",
     },
     {
-        front: "https://cdn.jsdelivr.net/gh/mbsky1213/images/web/2021/08/24/e2ncpex1ths.jpeg",
-        back: "https://cdn.jsdelivr.net/gh/mbsky1213/images/web/2021/08/24/fxj3dmb9bu.jpeg",
+        front: "https://raw.githubusercontents.com/mbsky1213/images/master/web/2021/08/24/e2ncpex1ths.jpeg",
+        back: "https://raw.githubusercontents.com/mbsky1213/images/master/web/2021/08/24/fxj3dmb9bu.jpeg",
     },
-]
+];
 </script>
 
 <style lang="less" scoped>

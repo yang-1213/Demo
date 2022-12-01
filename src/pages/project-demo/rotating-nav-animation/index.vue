@@ -21,31 +21,22 @@ meta:
                 <h1>Amazing Article</h1>
                 <small>Florin Pop</small>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia in
-                    ratione dolores cupiditate, maxime aliquid impedit dolorem nam dolor omnis atque
-                    fuga labore modi veritatis porro laborum minus, illo, maiores recusandae cumque
-                    ipsa quos. Tenetur, consequuntur mollitia labore pariatur sunt quia harum aut.
-                    Eum maxime dolorem provident natus veritatis molestiae cumque quod voluptates ab
-                    non, tempore cupiditate? Voluptatem, molestias culpa. Corrupti, laudantium iure
-                    aliquam rerum sint nam quas dolor dignissimos in error placeat quae temporibus
-                    minus optio eum soluta cupiditate! Cupiditate saepe voluptates laudantium.
-                    Ducimus consequuntur perferendis consequatur nobis exercitationem molestias
-                    fugiat commodi omnis. Asperiores quia tenetur nemo ipsa.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia in ratione dolores cupiditate, maxime aliquid impedit
+                    dolorem nam dolor omnis atque fuga labore modi veritatis porro laborum minus, illo, maiores recusandae cumque ipsa quos. Tenetur,
+                    consequuntur mollitia labore pariatur sunt quia harum aut. Eum maxime dolorem provident natus veritatis molestiae cumque quod
+                    voluptates ab non, tempore cupiditate? Voluptatem, molestias culpa. Corrupti, laudantium iure aliquam rerum sint nam quas dolor
+                    dignissimos in error placeat quae temporibus minus optio eum soluta cupiditate! Cupiditate saepe voluptates laudantium. Ducimus
+                    consequuntur perferendis consequatur nobis exercitationem molestias fugiat commodi omnis. Asperiores quia tenetur nemo ipsa.
                 </p>
 
                 <h3>My Dog</h3>
-                <img
-                    src="https://cdn.jsdelivr.net/gh/mbsky1213/images/web/2021/08/24/37l29brrshy.jpeg"
-                    alt="doggy"
-                />
+                <img src="https://raw.githubusercontents.com/mbsky1213/images/master/web/2021/08/24/37l29brrshy.jpeg" alt="doggy" />
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit libero deleniti
-                    rerum quo, incidunt vel consequatur culpa ullam. Magnam facere earum unde harum.
-                    Ea culpa veritatis magnam at aliquid. Perferendis totam placeat molestias illo
-                    laudantium? Minus id minima doloribus dolorum fugit deserunt qui vero voluptas,
-                    ut quia cum amet temporibus veniam ad ea ab perspiciatis, enim accusamus
-                    asperiores explicabo provident. Voluptates sint, neque fuga cum illum, tempore
-                    autem maxime similique laborum odio, magnam esse. Aperiam?
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit libero deleniti rerum quo, incidunt vel consequatur culpa ullam.
+                    Magnam facere earum unde harum. Ea culpa veritatis magnam at aliquid. Perferendis totam placeat molestias illo laudantium? Minus
+                    id minima doloribus dolorum fugit deserunt qui vero voluptas, ut quia cum amet temporibus veniam ad ea ab perspiciatis, enim
+                    accusamus asperiores explicabo provident. Voluptates sint, neque fuga cum illum, tempore autem maxime similique laborum odio,
+                    magnam esse. Aperiam?
                 </p>
             </div>
         </div>
@@ -54,28 +45,26 @@ meta:
             <ul>
                 <li @click="message.success('跳转home')"><i class="fas fa-home"></i> Home</li>
                 <li @click="message.success('跳转About')"><i class="fas fa-user-alt"></i> About</li>
-                <li @click="message.success('跳转Contact')">
-                    <i class="fas fa-envelope"></i> Contact
-                </li>
+                <li @click="message.success('跳转Contact')"><i class="fas fa-envelope"></i> Contact</li>
             </ul>
         </nav>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from "vue"
-import { useMessage } from "naive-ui"
+import { ref, watch } from "vue";
+import { useMessage } from "naive-ui";
 
-const Switch = ref(false)
-const message = useMessage()
+const Switch = ref(false);
+const message = useMessage();
 
-watch(Switch, val => {
+watch(Switch, (val) => {
     if (val) {
-        document.body.classList.add("overflow-hidden")
+        document.body.classList.add("overflow-hidden");
     } else {
-        document.body.classList.remove("overflow-hidden")
+        document.body.classList.remove("overflow-hidden");
     }
-})
+});
 </script>
 
 <style lang="less">

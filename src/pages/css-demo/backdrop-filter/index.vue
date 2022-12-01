@@ -13,23 +13,23 @@ meta:
 </template>
 
 <script lang="ts" setup>
-import { reactive, watch } from "vue"
-const state = reactive({ text: "", output: "" })
+import { reactive, watch } from "vue";
+const state = reactive({ text: "", output: "" });
 
 watch(
     () => state.text,
-    value => {
-        let content = value.split("")
+    (value) => {
+        let content = value.split("");
         for (let index = 0; index < content.length; index++) {
             setTimeout(() => {
-                state.output += content[index]
-            }, 100 * index)
+                state.output += content[index];
+            }, 100 * index);
         }
     }
-)
+);
 
-const data = await fetch("https://v1.hitokoto.cn/").then(res => res.json())
-state.text = data.hitokoto
+const data = await fetch("https://v1.hitokoto.cn/").then((res) => res.json());
+state.text = data.hitokoto;
 </script>
 
 <style lang="less" scoped>
@@ -40,7 +40,7 @@ state.text = data.hitokoto
     flex-wrap: wrap;
     background-color: #eceffc;
     height: 100%;
-    background-image: url(https://cdn.jsdelivr.net/gh/mbsky1213/images/web/2021/08/27/esy60faxtfm.jpeg);
+    background-image: url(https://raw.githubusercontents.com/mbsky1213/images/master/web/2021/08/27/esy60faxtfm.jpeg);
     background-size: cover;
     padding: 0 20px;
     .box {

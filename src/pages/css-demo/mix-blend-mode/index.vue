@@ -11,7 +11,7 @@ meta:
             muted
             loop
             preload="true"
-            poster="https://cdn.jsdelivr.net/gh/mbsky1213/images/web/2021/08/27/esy60faxtfm.jpeg"
+            poster="https://raw.githubusercontents.com/mbsky1213/images/master/web/2021/08/27/esy60faxtfm.jpeg"
             src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-20cb47b8-e033-42e3-9522-e10a16bb5389/cc297bc5-b01a-4a1b-9a1f-9fcb01acc5ca.mp4"
         ></video>
         <h1>mbsky</h1>
@@ -19,7 +19,7 @@ meta:
 </template>
 
 <script lang="ts" setup>
-import { useHead } from "@vueuse/head"
+import { useHead } from "@vueuse/head";
 
 useHead({
     link: [
@@ -28,7 +28,7 @@ useHead({
             href: "https://fonts.googleapis.com/css?family=Baloo+Bhaijaan&display=swap",
         },
     ],
-})
+});
 </script>
 
 <style lang="less" scoped>

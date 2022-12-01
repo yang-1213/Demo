@@ -20,7 +20,7 @@ meta:
     height: 100%;
 
     .box {
-        background-image: url(https://cdn.jsdelivr.net/gh/mbsky1213/images/web/2021/08/27/esy60faxtfm.jpeg);
+        background-image: url(https://raw.githubusercontents.com/mbsky1213/images/master/web/2021/08/27/esy60faxtfm.jpeg);
         background-size: cover;
         transition: 0.3s;
         width: 50%;

@@ -15,34 +15,34 @@
     </div>
 </template>
 <script lang="ts" setup>
-import useApp from "@hooks/common/useApp"
-import { onMounted, ref } from "vue"
-import { randomColor } from "@utils/index"
+import useApp from "@hooks/common/useApp";
+import { onMounted, ref } from "vue";
+import { randomColor } from "@utils/index";
 
-const { router } = useApp()
-const routes = router.getRoutes()
-const routerList = routes.filter(route => route.path.includes("/project-demo/"))
+const { router } = useApp();
+const routes = router.getRoutes();
+const routerList = routes.filter((route) => route.path.includes("/project-demo/"));
 
-const imageBg = ref("")
+const imageBg = ref("");
 
 /**获取背景图片 */
 const getImg = async () => {
-    let HomeBg = sessionStorage.getItem("HomeBg")
-    imageBg.value = HomeBg ?? ""
+    let HomeBg = sessionStorage.getItem("HomeBg");
+    imageBg.value = HomeBg ?? "";
     if (!HomeBg) {
-        let ret = await fetch("https://mbsky-api.vercel.app/api/image/bing").then(res => res.json())
-        imageBg.value = ret.data[0]["url"]
-        sessionStorage.setItem("HomeBg", imageBg.value)
+        let ret = await fetch("https://api.mbsky.top/api/image/bing").then((res) => res.json());
+        imageBg.value = ret.data[0]["url"];
+        sessionStorage.setItem("HomeBg", imageBg.value);
     }
-}
+};
 
 const handlePush = (path: string) => {
-    location.href = path
-}
+    location.href = path;
+};
 
 onMounted(async () => {
-    getImg()
-})
+    getImg();
+});
 </script>
 
 <style lang="less" scoped>
