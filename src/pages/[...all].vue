@@ -5,5 +5,15 @@ meta:
 </route>
 
 <template>
-    <div>404</div>
+    <div id="error-page">这是404页面哦</div>
 </template>
+
+<style lang="less" scoped>
+#error-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+</style>
