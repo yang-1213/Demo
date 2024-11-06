@@ -1,6 +1,6 @@
 <template>
-    <div flex="col" class="color" @click="handlePush">
-        <div>{{ store.count }}</div>
+    <div flex="col" class="color">
+        <div>你好</div>
     </div>
 </template>
 
@@ -17,7 +17,11 @@ const handlePush = () => {
 
 <style lang="less" scoped>
 .color {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: @default-color;
-    background-color: @primary-color;
+    // background-color: @primary-color;
 }
 </style>
